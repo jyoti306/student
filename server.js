@@ -11,7 +11,7 @@ const passport = require("passport")
 const page = require("./routes/page.js");
 const student = require("./routes/student.js");
 const user = require("./routes/user.js")
-port = 3000;
+port = process.env.PORT || 3000;
 
 const DB = process.env.DB
 
