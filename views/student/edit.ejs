@@ -1,0 +1,19 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+
+<body>
+    <form method="post" action="/edit/<%= user._id %>?_method=PUT" class="col-4 offset-4 mt-5">
+        <label for="a7" class="form-label"> Name </label>
+        <input value="<%= user.name %>" name="name" id="a7" class="form-control">
+        <label for="a2" class="form-label"> Age </label>
+        <input value="<%= user.age %>" name="age" id="a2" class="form-control">
+        <label for="a3" class="form-label"> City </label>
+        <input value="<%= user.city %>" name="city" id="a3" class="form-control">
+        <label for="a4" class="form-label"> Email </label>
+        <input value="<%= user.email %>" name="email" id="a4" class="form-control">
+        <label for="a5" class="form-label"> Father's Name </label>
+        <input value="<%= user.fatherName %>" name="father_name" id="a5" class="form-control">
+        <label for="a6" class="form-label"> Contact </label>
+        <input value="<%= user.contact %>" name="contact" id="a6" class="form-control">
+        <button class="btn btn-success mt-2"> Submit </button>
+    </form>

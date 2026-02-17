@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate.ejs') %>
+<main>
+    
+<div class="ab1 col-6 offset-3 mt-5">
+    <h3 class="offset-2"> Student Login Form </h3>
+<form method="post" action="/login" class="col-8 mt-3 offset-2">
+    <input placeholder =" enter your name " name="username" class="form-control"><br>
+    <div class="eye">
+        <input placeholder=" enter your password " name="password" class="form-control" id="passInp" type="text">
+        <i class="fa-solid fa-eye eye_btn"></i>
+    </div>
+    <button class="btn btn-dark col-6 offset-3 mt-4" > Submit </button>
+</form>
+</div>
+</main>
+
+<script>
+    let eye_btn = document.querySelector(".eye_btn");
+    let passInp = document.querySelector("#passInp");
+
+    eye_btn.addEventListener("click",function(){
+        if(passInp.type=="text"){
+            passInp.type="password"
+        }else{
+            passInp.type="text"
+        }
+    });
+
+</script>

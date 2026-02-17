@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+
+<% if(msg&&msg.length>0){ %>
+    <div class="alert alert-success alert-dismissible fade show mt-3 ms-3" role="alert">
+        student created successfully
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<%}%>
+
+<% if(ed&&ed.length>0){ %>
+<div class="alert alert-warning alert-dismissible fade show mt-3 ms-3" role="alert">
+     Edit Student
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="warning"></button>
+</div>
+<%}%>
+<% if(del&&del.length>0){ %>
+   <div class="alert alert-danger alert-dismissible fade show mt-3 ms-3" role="alert">
+         Deleted student
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="warning:"></button>
+    </div>
+<%}%> 
+
+<a href="/new" class="btn btn-dark cd col-1 offset-4">New</a>
+<h1> Student Detail </h1>
+    <table class="col-2 offset-2 mt-3">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Age</td>
+                <td>City</td>
+                <td>Email</td>
+                <td>FatherName</td>
+                <td>Contact</td>
+                <td>Info</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let user of students){%>
+                <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.age %></td>
+                    <td><%= user.city %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.fatherName %></td>
+                    <td><%= user.contact %></td>
+                   <td> <a href="/user/<%= user._id %>" class="btn btn-outline-dark">Info</a></td>
+                </tr>
+            <%}%>
+        </tbody>
+    </table>

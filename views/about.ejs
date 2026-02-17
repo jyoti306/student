@@ -1,0 +1,20 @@
+<% layout('layouts/boilerplate.ejs') %>
+<main class="ab9 col-8">
+    <img class="ab11" src="./img1.jpg">
+    <div class="ab12 col-8  mt-4" > <p class="ab13 col-8  mt-4" >We Do it Together</p> <p>Lorem ipsum dolor sit amet consectetur,
+         adipisicing elit. Doloremque aspernatur, temporibus tenetur cupiditate 
+         quasi libero quos esse eveniet reiciendis consequuntur ea consequatur dolorum
+         nemo,voluptatibus sit! Officiis temporibus laudantium voluptatem!</p>
+        <button class="btn btn-dark" id="rd"> Read More </button></div>
+</main>
+
+<script>
+    let rd = document.querySelector("#rd");
+    console.log(rd)
+
+    rd.addEventListener("click",function(){
+        let div = document.createElement("div")
+        div.innerText="The morning sun spilled softly through the window, painting golden patterns across the quiet room. Outside, the trees swayed gently in the breeze, carrying with them the promise of a calm and peaceful day. Sometimes, it’s in these simple moments that we find the greatest sense of clarity and comfort."
+        rd.replaceWith(div)
+    })
+</script>

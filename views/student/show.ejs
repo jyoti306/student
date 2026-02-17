@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+<h2 class="offset-4" > Student</h2>
+<table class="col-4 offset-4 mt-2" >
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td><%= user.name %></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><%= user.age %></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td><%= user.city %></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><%= user.email %></td>
+            </tr>
+            <tr>
+                <td>FatherName</td>
+                <td><%= user.fatherName %></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td><%= user.contact %></td>
+            </tr>
+        </tbody>
+    </table>
+
+   <div class="btns offset-5">
+    <a href="/edit/<%= user._id %>" type="button" class="btn btn-primary"> Edit </a>
+ 
+
+   <form method="post" action="/delete/<%= user.id %>?_method=DELETE" id="a1">
+        <button  class="btn btn-danger">Delete</button>
+   </form>  
+   </div>
