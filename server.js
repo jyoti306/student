@@ -14,7 +14,7 @@ const user = require("./routes/user.js")
 port = process.env.PORT || 3000;
 
 const DB = process.env.DB
-
+//ab = 'mongodb://127.0.0.1:27017/pp'
 async function main(){
     mongoose.connect(DB)
 }

@@ -16,21 +16,24 @@ router.get("/signup",(req,res)=>{
 });
 
 router.post("/signup",async(req,res,next)=>{
-    let {username,password} = req.body;
-    if(!username || !password){
-        res.send("info required")
-    }
-    const user = new abc({
-        username,
-    })
-    let newUser = await abc.register(user,password);
-    req.login(newUser,(err)=>{
-        if(err){
-            next(err)
+    try{
+        let {username,password} = req.body;
+        if(!username || !password){
+            res.send("info required")
         }
-        res.redirect("/home");
-    })
-    
+        const user = new abc({
+            username,
+        })
+        let newUser = await abc.register(user,password);
+        req.login(newUser,(err)=>{
+            if(err){
+                next(err)
+            }
+            res.redirect("/home");
+        })
+    }catch(err){
+        next(err)
+    }
 });
 
 
