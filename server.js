@@ -1,6 +1,8 @@
 require("dotenv").config()
 const express = require("express");
 const app = express();
+const helmet = require("helmet");
+app.use(helmet());
 const path = require("path")
 const ejsMate = require("ejs-mate");
 const mongoose = require("mongoose");
@@ -11,7 +13,12 @@ const passport = require("passport")
 const page = require("./routes/page.js");
 const student = require("./routes/student.js");
 const user = require("./routes/user.js")
+const MonogoStore = require("connect-mongo").default
+const csrf = require("csurf");
+const csrfProtection = csrf();
+
 port = process.env.PORT || 3000;
+
 
 const DB = process.env.DB
 //ab = 'mongodb://127.0.0.1:27017/pp'
@@ -37,8 +44,18 @@ app.use(session({
     secret:"this_secret",
     resave:false,
     resaveUninitialized:true,
-   
+    cookie:{
+        httpOnly:true,
+        secure:process.env.NODE_ENV==="production",
+        sameSite:"lax",
+        maxAge:1000*60*60*24,
+    },
+    store:MonogoStore.create({
+     mongoUrl: DB,
+     ttl:14*24*60*60 // 14 days
+    })
 }));
+
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
