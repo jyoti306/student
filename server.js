@@ -1,8 +1,8 @@
 require("dotenv").config()
 const express = require("express");
 const app = express();
-const helmet = require("helmet");
-app.use(helmet());
+// const helmet = require("helmet");
+// app.use(helmet());
 const path = require("path")
 const ejsMate = require("ejs-mate");
 const mongoose = require("mongoose");
@@ -14,8 +14,8 @@ const page = require("./routes/page.js");
 const student = require("./routes/student.js");
 const user = require("./routes/user.js")
 const MonogoStore = require("connect-mongo").default
-const csrf = require("csurf");
-const csrfProtection = csrf();
+// const csrf = require("csurf");
+// const csrfProtection = csrf();
 
 port = process.env.PORT || 3000;
 
