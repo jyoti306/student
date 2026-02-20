@@ -39,11 +39,11 @@ app.use(express.static(path.join(__dirname,"public")));
 
 app.use(mo("_method"));
 app.use(express.urlencoded({extended:true}));
-
+app.set("trust proxy", 1);
 app.use(session({
     secret:"this_secret",
     resave:false,
-    resaveUninitialized:true,
+    saveUninitialized:true,
     cookie:{
         httpOnly:true,
         secure:process.env.NODE_ENV==="production",
